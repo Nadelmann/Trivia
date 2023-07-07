@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react';
 import QuestionRow from './QuestionRow';
 
 
-
-export default function MovieQuestions() {
+export default function ScienceQuestions() {
   const [questions, setQuestions] = useState([]);
 
   
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        const response = await fetch("https://the-trivia-api.com/api/questions?categories=film_and_tv");
+        const response = await fetch("https://the-trivia-api.com/api/questions?categories=science");
         const data = await response.json();
         setQuestions(data); 
         console.log(data);
@@ -33,12 +32,11 @@ export default function MovieQuestions() {
 
   return (
     <div>
-        <div colSpan="4">Film and TV Trivia</div>
+        <div className='Header' colSpan="4"></div>
               {questions.map((questions) => (
                             <QuestionRow
                             key={questions.id}
                             questions={questions}
-
                           />
               ))
         }     

@@ -33,8 +33,18 @@
   }
 }
 
-.card {
+.List {
   padding: 2em;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background-color: midnightblue;
 }
 
 .read-the-docs {
