@@ -4,9 +4,7 @@ const AnswerRow = ({ selectedQuestion }) => {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  useEffect(() => {
-    fetchQuestion();
-  }, [selectedQuestion]);
+
 
   const fetchQuestion = async () => {
     try {
@@ -17,6 +15,10 @@ const AnswerRow = ({ selectedQuestion }) => {
       console.error('Error fetching question:', error);
     }
   };
+
+  useEffect(() => {
+    fetchQuestion(selectedQuestion);
+  }, [selectedQuestion]);
 
   const handleAnswerClick = (answer) => {
     setSelectedAnswer(answer);

@@ -1,19 +1,20 @@
 import './App.css';
 import { useState } from 'react';
-import MovieQuestions from "./components/MovieQuestions";
-import SelectedQuestion from './components/SelectedQuestion';
+import SelectedCategory from './components/TriviaRow.jsx';
+import Trivia from './components/Trivia';
+
 
 
 export default function App() {
-  const [selectedQuestionId, setSelectedQuestion] = useState(null);
+  const [selectedCategoryId, setSelectedCategory] = useState(null);
 
   return (
     <>
-      {selectedQuestionId ? (
-        <SelectedQuestion selectedContactId={selectedQuestionId} 
-        setSelectedContactId={setSelectedQuestion}/>
+      {selectedCategoryId ? (
+        <SelectedCategory selectedCategoryId={selectedCategoryId} 
+        setSelectedCategory={setSelectedCategory}/>
       ) : (
-      <MovieQuestions setSelectedQuestion={setSelectedQuestion}/>
+      <Trivia setSelectedCategory={setSelectedCategory}/>
       )}
     </>
   );
