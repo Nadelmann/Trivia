@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import TriviaRow from './TriviaRow';
 import MovieQuestions from './MovieQuestions';
+import ScienceQuestions from './ScienceQuestions';
+import HistoryQuestions from './HistoryQuestions';
+import MusicQuestions from './MusicQuestions';
+import ArtsQuestions from './ArtsQuestions';
 
 export default function Trivia() {
   const [categories, setCategories] = useState([]);
@@ -35,8 +39,28 @@ export default function Trivia() {
   };
 
   if (selectedCategory) {
-    return <MovieQuestions category={selectedCategory} handleBackClick={handleBackClick} />;
-  }
+    const categoryName = selectedCategory.category;
+    let selectedComponent;
+
+    if (categoryName === "Film & TV") {
+      selectedComponent = <MovieQuestions category={selectedCategory} handleBackClick={handleBackClick} />
+    } else if (categoryName === "Science") {
+      selectedComponent = <ScienceQuestions category={selectedCategory} handleBackClick={handleBackClick} />
+    } else if  (categoryName === "Music") {
+      selectedComponent = <MusicQuestions category={selectedCategory} handleBackClick={handleBackClick} />
+    } else if  (categoryName === "History") {
+      selectedComponent = <HistoryQuestions category={selectedCategory} handleBackClick={handleBackClick} />
+    } else if  (categoryName === "art_and_literature") {
+      selectedComponent = <ArtsQuestions category={selectedCategory} handleBackClick={handleBackClick} />  
+    } else {
+      selectedComponent = <div>No Questions Available</div>;
+    }
+    return (
+      <div>
+        {selectedComponent}
+    </div>
+  );
+}
 
   return (
     <div>
