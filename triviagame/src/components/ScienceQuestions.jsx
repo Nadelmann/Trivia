@@ -12,7 +12,6 @@ export default function ScienceQuestions({ category, handleBackClick }) {
         const response = await fetch("https://the-trivia-api.com/api/questions?categories=Science");
         const data = await response.json();
         setQuestions(data);
-        console.log(data);
       } catch (error) {
         console.log('Error fetching questions:', error);
       }

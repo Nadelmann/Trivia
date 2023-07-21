@@ -12,7 +12,6 @@ export default function MovieQuestions({ category, handleBackClick }) {
         const response = await fetch("https://the-trivia-api.com/api/questions?categories=film_and_tv");
         const data = await response.json();
         setQuestions(data);
-        console.log(data);
       } catch (error) {
         console.log('Error fetching questions:', error);
       }
@@ -35,9 +34,15 @@ export default function MovieQuestions({ category, handleBackClick }) {
   }
 
   if(selectedQuestion){
+
+    const selectedQuestionData = questions.find(question => question.id === selectedQuestion);
+
     return (
       <div>
-        <AnswerRow selectedQuestion={selectedQuestion} />
+        <AnswerRow
+          correctAnswer={selectedQuestionData.correct_answer}
+          incorrectAnswers={selectedQuestionData.incorrect_answers}
+        />
         <button onClick={handleMovieQuestionsBackClick}>Back</button>
       </div>
     );

@@ -21,7 +21,6 @@ export default function Trivia() {
             self.findIndex((c) => c.id === category.id)
         );
         setCategories(uniqueCategories);
-        console.log(uniqueCategories);
       } catch (error) {
         console.log('Error fetching categories:', error);
       }

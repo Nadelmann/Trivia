@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import AnswerRow from "./AnswerRow";
 
 export default function SelectedQuestion({ selectedQuestionId, setSelectedQuestion }) {
   const [question, setQuestion] = useState(null);
@@ -7,7 +8,7 @@ export default function SelectedQuestion({ selectedQuestionId, setSelectedQuesti
     async function fetchQuestion() {
       try {
         const response = await fetch(
-          `https://the-trivia-api.com/api/questions/${selectedQuestionId}`
+          `https://the-trivia-api.com/v2/question/Id`
         );
 
         const result = await response.json();
@@ -27,7 +28,9 @@ export default function SelectedQuestion({ selectedQuestionId, setSelectedQuesti
 
   return (
     <div>
-      <h2>Answers: </h2>
+      <h2>{question.question}</h2>
+      <h3>Answers:</h3>
+      <AnswerRow correctAnswer={question.correct_answer} incorrectAnswers={question.incorrect_answers} />
       <button onClick={() => setSelectedQuestion(null)}>Back</button>
     </div>
   );
