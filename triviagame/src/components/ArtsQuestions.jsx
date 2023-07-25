@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { QuestionRow } from './QuestionRow';
 import { AnswerRow } from './AnswerRow';
 
-export function ScienceQuestions({ category, handleBackClick }) {
+export function ArtsQuestions({ category, handleBackClick }) {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
 
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        const response = await fetch("https://the-trivia-api.com/api/questions?categories=Science");
+        const response = await fetch("https://the-trivia-api.com/api/questions?categories=art_and_literature");
         const data = await response.json();
         setQuestions(data);
       } catch (error) {
@@ -20,7 +20,7 @@ export function ScienceQuestions({ category, handleBackClick }) {
     fetchQuestions();
   }, [category]);
 
-  const handleScienceQuestionsBackClick = () => {
+  const handleArtsQuestionsBackClick = () => {
     setSelectedQuestion(null);
     handleBackClick();
   };
@@ -37,19 +37,18 @@ export function ScienceQuestions({ category, handleBackClick }) {
     return (
       <div>
         <AnswerRow selectedQuestion={selectedQuestion} />
-        <button onClick={handleScienceQuestionsBackClick}>Back</button>
+        <button onClick={handleArtsQuestionsBackClick}>Back</button>
       </div>
     );
   }
   
   return (
     <div>
-      <div colSpan="4">Science Trivia</div>
+      <div colSpan="4">Music Trivia</div>
       {questions.map((question) => (
         <QuestionRow key={question.id}  setSelectedQuestion={handleQuestionClick} question={question} />
       ))}
-      <button onClick={handleScienceQuestionsBackClick}>Back</button>
+      <button onClick={handleArtsQuestionsBackClick}>Back</button>
     </div>
   );
 }
-

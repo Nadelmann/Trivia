@@ -50,3 +50,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.answer-row {
+  display: flex;
+  justify-content: center; /* This centers the buttons horizontally */
+}
+
+.answer-button {
+  margin: 5px; /* Adjust the margin as per your preference */
+}

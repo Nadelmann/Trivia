@@ -1,15 +1,15 @@
-export default function QuestionRow({ setSelectedQuestion, questions }) {
+export default function QuestionRow({ setSelectedQuestion, question }) {
   return (
     <table>
       <tbody>
         <tr
           className='List'
           onClick={() => {
-            setSelectedQuestion(questions.id);
+            setSelectedQuestion(question.id);
           }}
-          key={questions.id}>
+          key={question.id}>
 
-          <td>{questions.question}</td>
+          <td>{question.question}</td>
         </tr>
       </tbody>
     </table>
