@@ -1,5 +1,5 @@
 
-export default function TriviaRow({ setSelectedCategory, category }) {
+export  function TriviaRow({ setSelectedCategory, category }) {
   const handleCategoryClick = () => {
     setSelectedCategory(category);
   }

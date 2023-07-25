@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import QuestionRow from './QuestionRow';
-import AnswerRow from './AnswerRow';
+import { QuestionRow } from './QuestionRow';
+import { AnswerRow } from './AnswerRow';
 
-export default function MusicQuestions({ category, handleBackClick }) {
+export  function MusicQuestions({ category, handleBackClick }) {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
 

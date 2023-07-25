@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AnswerRow from "./AnswerRow";
+import { AnswerRow } from "./AnswerRow";
 
 export default function SelectedQuestion({ selectedQuestionId, setSelectedQuestion }) {
   const [question, setQuestion] = useState(null);

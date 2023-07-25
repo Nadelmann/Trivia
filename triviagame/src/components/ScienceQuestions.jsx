@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import QuestionRow from './QuestionRow';
-import AnswerRow from './AnswerRow';
+import { QuestionRow } from './QuestionRow';
+import { AnswerRow } from './AnswerRow';
 
-export default function ScienceQuestions({ category, handleBackClick }) {
+export function ScienceQuestions({ category, handleBackClick }) {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
 
